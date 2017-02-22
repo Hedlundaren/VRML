@@ -1,12 +1,16 @@
 #VRML V2.0 utf8
 
-
-PROTO Torch [
-  field SFFloat dist1 10.0
-  field SFFloat dist2 20.0
-  field SFFloat dist3 30.0
-]{
-
-
+LOD{
+  center 0.0 0.0 0.0
+  range [10.0, 20.0]
+  level [ Inline {url "atorch1.wrl"},
+  Inline {url "atorch2.wrl"},
+  Inline {url "atorch3.wrl"} ]
 }
-Inline {url "torch1.wrl"}
+
+PointLight {
+  location 0.0 0.0 0.0
+  intensity 0.3
+  color 0.7 0.5 0.3
+  radius 15.0
+}

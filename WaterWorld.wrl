@@ -54,10 +54,11 @@ DEF Scene Transform {
                         diffuseColor 0.0 0.0 1.0
                         emissiveColor 0.0 0.0 0.0
                     }
-
-                    texture ImageTexture {
-                       url "textures/ocean1.jpg"
-                    }
+                    texture MovieTexture { url "textures/ocean.mpg"
+                      loop TRUE
+                      speed 1.0
+                      startTime 0.0
+                      stopTime 0.0 }
                 }
                 geometry Box { size 2000.0 10.0 2000.0 }
             }
@@ -155,7 +156,7 @@ DEF Scene Transform {
 
     # Door
     Anchor {
-      url "YoloWorld.wrl"
+      url "Main.wrl"
       description "Yolo World"
       children [
       Transform {

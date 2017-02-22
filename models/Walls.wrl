@@ -56,7 +56,52 @@ Transform{
       rotation 0.0 1.0 0.0 1.571
       translation 0.0 300.0 -1000.0
 
-      children USE Wall
+      children [
+        USE Wall
+
+        Transform{
+
+          children DEF Board Shape {
+             appearance Appearance{
+                 material Material { diffuseColor 1.0 1.0 1.0  }
+                 texture ImageTexture { url "../textures/wood1.jpg" }
+             }
+               geometry Box { size 70.0 50.0 1520.0 }
+           }
+        }
+
+        Transform{
+          translation 10.0 200.0 0.0
+          rotation 1.0 0.0 0.0 0.24
+          children USE Board
+        }
+
+        Transform{
+          translation 0.0 200.0 0.0
+          rotation 1.0 0.0 0.0 -0.24
+          children USE Board
+        }
+
+        Transform{
+          translation 0.0 400.0 0.0
+          children USE Board
+        }
+
+        Transform{
+          translation 0.0 200.0 0.0
+
+          children Shape {
+             appearance Appearance{
+                 material Material { diffuseColor 1.0 1.0 1.0  }
+                 texture ImageTexture { url "../textures/stone3.jpg" }
+             }
+               geometry Box { size 20.0 400.0 1520.0 }
+           }
+        }
+
+
+      ]
+
     }
 
 
