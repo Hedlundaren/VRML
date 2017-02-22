@@ -1,0 +1,97 @@
+#VRML V2.0 utf8
+
+#  This world illustrates the use of a script to cycle between
+#  textures, and then encapsulation of the script, a clock, and
+#  a polygon, all within a PROTO to create a new 'Flames' node
+#  that makes flickering flames.
+#
+#  Three flame textures are used:
+#	flames1.png
+#	flames2.png
+#	flames3.png
+#
+#  All three textures have a transparency channel (alpha channel) so
+#  that areas outside of the flame are transparent.
+#
+#  flame1.png was hand-drawn in PhotoShop.  The other two flames were
+#  created by applying the PhotoShop 'Twirl' filter to several parts of
+#  the original flame.  This creates a curling effect that looks
+#  vaugely flame-like.  For a better effect, use more flame images and
+#  more care in applying the Twirl filter... or hand draw them all.
+#
+
+PROTO Flames [
+	field SFTime cycleInterval 1.0
+	field SFTime startTime 0.0
+] {
+	Shape {
+		appearance DEF FlameAppearance Appearance {
+		}
+		geometry IndexedFaceSet {
+			coord Coordinate {
+				point [
+					-0.5 0.0 0.0,
+					 0.5 0.0 0.0,
+					 0.5 1.8 0.0,
+					-0.5 1.8 0.0,
+				]
+			}
+			coordIndex [ 0, 1, 2, 3 ]
+			texCoord TextureCoordinate {
+				point [
+					0.0 0.0,
+					1.0 0.0,
+					1.0 1.0,
+					0.0 1.0,
+				]
+			}
+			texCoordIndex [ 0, 1, 2, 3 ]
+			solid FALSE
+		}
+	}
+	DEF Clock TimeSensor {
+		cycleInterval IS cycleInterval
+		loop TRUE
+		startTime IS startTime
+		stopTime 0.0
+	}
+
+	DEF FlameSelector Script {
+		field MFNode flameTextures [
+			DEF Flame1 ImageTexture {
+				url "textures/flames1.png"
+				repeatS FALSE
+				repeatT FALSE
+			}
+			ImageTexture {
+				url "textures/flames2.png"
+				repeatS FALSE
+				repeatT FALSE
+			}
+			USE Flame1
+			ImageTexture {
+				url "textures/flames3.png"
+				repeatS FALSE
+				repeatT FALSE
+			}
+		]
+		eventIn SFFloat set_fraction
+		eventOut SFNode texture_changed
+
+		# use 'javascript' on newer browsers
+		url "vrmlscript:
+			function set_fraction( f, tm ) {
+				if ( f < 0.25 )
+					texture_changed = flameTextures[0];
+				else if ( f < 0.50 )
+					texture_changed = flameTextures[1];
+				else if ( f < 0.75 )
+					texture_changed = flameTextures[2];
+				else
+					texture_changed = flameTextures[3];
+			}"
+	}
+
+	ROUTE Clock.fraction_changed TO FlameSelector.set_fraction
+	ROUTE FlameSelector.texture_changed TO FlameAppearance.set_texture
+}

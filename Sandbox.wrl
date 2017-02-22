@@ -7,7 +7,7 @@ WorldInfo {
 
 NavigationInfo {
     type [ "EXAMINE", "ANY" ]
-    headlight TRUE
+    headlight FALSE
 }
 
 
@@ -33,7 +33,7 @@ DEF Scene Transform {
                        url "textures/stone1.jpg"
                     }
                 }
-                geometry Box { size 200.0 10.0 200.0 }
+                geometry Box { size 200.0 3.0 200.0 }
             }
         ]
     }
@@ -75,17 +75,61 @@ DEF Scene Transform {
     }
 
     # Text
-    Transform {
-        translation 0.0 50.0 0.0
-        rotation 0.0 0.0 1.0 0.0
-        scale 10.0 10.0 10.0
-          children Shape {
-              appearance USE FloorMaterial
-              geometry Text {
-                string["Welcome to", "Yolo Swag"]
-                fontStyle FontStyle{ justify "MIDDLE" family "SERIF" style "BOLD"}
+    Billboard{
+      axisOfRotation 0.0 1.0 0.0
+      children [
+        Transform {
+            translation 0.0 50.0 0.0
+            rotation 0.0 0.0 1.0 0.0
+            scale 10.0 10.0 10.0
+              children Shape {
+                  appearance USE FloorMaterial
+                  geometry Text {
+                    string["Welcome to", "Yolo Swag"]
+                    fontStyle FontStyle{ justify "MIDDLE" family "SERIF" style "BOLD"}
+                  }
               }
           }
+        ]
+      }
+
+      # Door
+      Anchor {
+        url "WaterWorld.wrl"
+        description "Water World"
+        children [
+        Transform {
+            translation 0.0 100.0 -100.0
+            rotation 0.0 0.0 1.0 0.0
+            scale 1.0 1.0 1.0
+            children [
+              Shape {
+                appearance DEF DoorMaterial Appearance {
+                    material Material {
+                        diffuseColor 1.0 1.0 1.0
+                        ambientIntensity 0.0
+                    }
+                    texture ImageTexture {
+                       url "textures/door1.jpg"
+                    }
+                }
+                  geometry Box { size 100.0 200.0 5.0 }
+              }
+            ]
+          }
+        ]
+      }
+
+      # Light Crown
+      Transform {
+        translation 0.0 100.0 0.0
+        scale 100.0 100.0 100.0
+        children [
+          Inline{
+            url "Candle.wrl"
+          }
+
+        ]
       }
 
 
