@@ -59,18 +59,18 @@ PROTO Flames [
 	DEF FlameSelector Script {
 		field MFNode flameTextures [
 			DEF Flame1 ImageTexture {
-				url "textures/flames1.png"
+				url "../textures/flames1.png"
 				repeatS FALSE
 				repeatT FALSE
 			}
 			ImageTexture {
-				url "textures/flames2.png"
+				url "../textures/flames2.png"
 				repeatS FALSE
 				repeatT FALSE
 			}
 			USE Flame1
 			ImageTexture {
-				url "textures/flames3.png"
+				url "../textures/flames3.png"
 				repeatS FALSE
 				repeatT FALSE
 			}

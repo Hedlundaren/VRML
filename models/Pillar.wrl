@@ -1,0 +1,31 @@
+#VRML V2.0 utf8
+
+
+Transform{
+
+  translation 0.0 0.0 0.0
+
+  children [
+    Shape {
+      appearance DEF PillarMaterial Appearance {
+          material Material {
+              diffuseColor 1.0 1.0 1.0
+              emissiveColor 0.2 0.2 0.2
+              ambientIntensity 0.0
+          }
+          texture ImageTexture {
+             url "../textures/door1.jpg"
+          }
+      }
+        geometry Cylinder { height 700.0 radius 25.0 }
+    }
+
+    Transform{
+      translation 1.0 100.0 30.0
+      rotation 1.0 0.0 0.0 0.4
+      scale 100.0 100.0 100.0
+      children Inline{ url "Torch.wrl" }
+    }
+  ]
+
+}

@@ -1,0 +1,49 @@
+#VRML V2.0 utf8
+
+#  Tower base
+Transform {
+    translation 0.0 5.0 0.0
+    children Shape {
+        appearance DEF CastleMaterial Appearance {
+            material Material {
+                diffuseColor 1.0 1.0 1.0
+                ambientIntensity 0.0
+            }
+            texture ImageTexture {
+               url "../textures/wood1.jpg"
+            }
+        }
+        geometry Cylinder {
+            radius 50.0
+            height 10.0
+            bottom FALSE
+        }
+    }
+}
+
+# Table Middle
+Transform {
+    translation 0.0 30.0 0.0
+    children Shape {
+        appearance USE CastleMaterial
+        geometry Cylinder {
+            radius 20.0
+            height 80.0
+            bottom FALSE
+        }
+    }
+}
+
+# Table Top
+Transform {
+    translation 0.0 80.0 0.0
+    rotation 0.0 1.0 0.0 0.8
+    children Shape {
+        appearance USE CastleMaterial
+        geometry Cylinder {
+            radius 120.0
+            height 15.0
+            bottom TRUE
+        }
+    }
+}

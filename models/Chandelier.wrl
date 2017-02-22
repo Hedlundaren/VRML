@@ -1,0 +1,56 @@
+#VRML V2.0 utf8
+
+
+# Crown
+Transform{
+  translation 0.0 0.0 0.0
+  scale 0.7 0.7 0.7
+  children[
+
+    # Candles
+    Transform{ translation 1.0 0.0 0.0 children DEF Candle Inline{url "Candle.wrl"}}
+    Transform{ translation 0.5 0.0 0.866 children USE Candle } # 2
+    Transform{ translation -0.5 0.0 0.866 children USE Candle } # 3
+    Transform{ translation -1.0 0.0 0.0 children USE Candle } # 4
+    Transform{ translation -0.5 0.0 -0.866 children USE Candle } # 5
+    Transform{ translation 0.5 0.0 -0.866 children USE Candle } # 6
+
+    # Ring
+    Transform{
+      translation 0.0 -0.4 0.0
+      children Shape{
+        appearance DEF Metal Appearance {
+            material Material {
+                diffuseColor  0.4 0.4 0.4
+                specularColor 0.7 0.7 0.7
+            }
+        }
+        geometry Cylinder{height 0.1 radius 1.0 bottom FALSE top FALSE}
+      }
+    }
+    # Cross
+    Transform{
+      translation 0.0 -0.4 0.0
+      children [
+
+      Shape{ appearance USE Metal geometry Box { size 2.0 0.05 0.1 } }
+      Shape{ appearance USE Metal geometry Box { size 0.1 0.05 2.0  } }
+
+      ]
+    }
+
+    # RoofString
+    Transform{
+      translation 0.0 3.1 0.0
+      children Shape{
+        appearance USE Metal
+        geometry Cylinder{height 7.0 radius 0.05 bottom FALSE top FALSE}
+      }
+    }
+
+
+
+
+
+  ]
+}

@@ -1,0 +1,12 @@
+#VRML V2.0 utf8
+
+
+PROTO Torch [
+  field SFFloat dist1 10.0
+  field SFFloat dist2 20.0
+  field SFFloat dist3 30.0
+]{
+
+
+}
+Inline {url "torch1.wrl"}
