@@ -1,0 +1,18 @@
+#VRML V2.0 utf8
+
+#  This file illustrates the use of an LOD node to automatically
+#  switch among different versions of a shape based upon the
+#  distance the viewer is from that shape.
+
+LOD {
+    center 0.0 0.0 0.0
+    range [ 7.0, 10.0 ]
+    level [
+    # High-detail
+        Inline { url "torch1.wrl" },
+    # Medium-detail
+        Inline { url "torch2.wrl" },
+    # Low-detail
+        Inline { url "torch3.wrl" }
+    ]
+}

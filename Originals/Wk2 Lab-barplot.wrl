@@ -1,0 +1,1234 @@
+#VRML V2.0 utf8
+
+# Demonstrates Transform, Shape, Box, Text, Billboard
+
+# Sample 0 of 29
+Transform {
+    translation 0.000000 0.000000 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.000000 0.000000 1.000000
+                }
+            }
+            geometry Box {
+                size 1.000000 0.000000 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 0.000000 0.476190 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "0.0"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 1 of 29
+Transform {
+    translation 1.000000 0.519779 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.207912 0.000000 0.792089
+                }
+            }
+            geometry Box {
+                size 1.000000 1.039558 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 1.000000 1.515748 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "1.0"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 2 of 29
+Transform {
+    translation 2.000000 1.016841 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.406736 0.000000 0.593264
+                }
+            }
+            geometry Box {
+                size 1.000000 2.033682 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 2.000000 2.509872 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "2.0"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 3 of 29
+Transform {
+    translation 3.000000 1.469462 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.587785 0.000000 0.412215
+                }
+            }
+            geometry Box {
+                size 1.000000 2.938924 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 3.000000 3.415115 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "2.9"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 4 of 29
+Transform {
+    translation 4.000000 1.857861 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.743144 0.000000 0.256856
+                }
+            }
+            geometry Box {
+                size 1.000000 3.715722 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 4.000000 4.191912 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "3.7"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 5 of 29
+Transform {
+    translation 5.000000 2.165062 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.866025 0.000000 0.133975
+                }
+            }
+            geometry Box {
+                size 1.000000 4.330125 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 5.000000 4.806315 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "4.3"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 6 of 29
+Transform {
+    translation 6.000000 2.377640 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.951056 0.000000 0.048944
+                }
+            }
+            geometry Box {
+                size 1.000000 4.755281 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 6.000000 5.231471 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "4.8"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 7 of 29
+Transform {
+    translation 7.000000 2.486305 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.994522 0.000000 0.005478
+                }
+            }
+            geometry Box {
+                size 1.000000 4.972609 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 7.000000 5.448800 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "5.0"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 8 of 29
+Transform {
+    translation 8.000000 2.486305 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.994522 0.000000 0.005478
+                }
+            }
+            geometry Box {
+                size 1.000000 4.972610 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 8.000000 5.448800 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "5.0"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 9 of 29
+Transform {
+    translation 9.000000 2.377643 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.951057 0.000000 0.048943
+                }
+            }
+            geometry Box {
+                size 1.000000 4.755285 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 9.000000 5.231476 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "4.8"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 10 of 29
+Transform {
+    translation 10.000000 2.165066 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.866026 0.000000 0.133974
+                }
+            }
+            geometry Box {
+                size 1.000000 4.330132 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 10.000000 4.806322 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "4.3"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 11 of 29
+Transform {
+    translation 11.000000 1.857865 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.743146 0.000000 0.256854
+                }
+            }
+            geometry Box {
+                size 1.000000 3.715730 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 11.000000 4.191921 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "3.7"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 12 of 29
+Transform {
+    translation 12.000000 1.469467 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.587787 0.000000 0.412213
+                }
+            }
+            geometry Box {
+                size 1.000000 2.938935 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 12.000000 3.415125 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "2.9"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 13 of 29
+Transform {
+    translation 13.000000 1.016847 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.406739 0.000000 0.593261
+                }
+            }
+            geometry Box {
+                size 1.000000 2.033694 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 13.000000 2.509884 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "2.0"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 14 of 29
+Transform {
+    translation 14.000000 0.519785 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.207914 0.000000 0.792086
+                }
+            }
+            geometry Box {
+                size 1.000000 1.039570 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 14.000000 1.515760 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "1.0"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 15 of 29
+Transform {
+    translation 15.000000 0.000006 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.000003 0.000000 0.999997
+                }
+            }
+            geometry Box {
+                size 1.000000 0.000013 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 15.000000 0.476203 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "0.0"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 16 of 29
+Transform {
+    translation 16.000000 -0.519772 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.207909 0.000000 0.792091
+                }
+            }
+            geometry Box {
+                size 1.000000 1.039545 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 16.000000 -1.515735 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "-1.0"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 17 of 29
+Transform {
+    translation 17.000000 -1.016835 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.406734 0.000000 0.593266
+                }
+            }
+            geometry Box {
+                size 1.000000 2.033669 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 17.000000 -2.509860 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "-2.0"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 18 of 29
+Transform {
+    translation 18.000000 -1.469457 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.587783 0.000000 0.412217
+                }
+            }
+            geometry Box {
+                size 1.000000 2.938913 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 18.000000 -3.415104 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "-2.9"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 19 of 29
+Transform {
+    translation 19.000000 -1.857857 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.743143 0.000000 0.256857
+                }
+            }
+            geometry Box {
+                size 1.000000 3.715713 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 19.000000 -4.191904 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "-3.7"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 20 of 29
+Transform {
+    translation 20.000000 -2.165059 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.866024 0.000000 0.133976
+                }
+            }
+            geometry Box {
+                size 1.000000 4.330118 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 20.000000 -4.806308 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "-4.3"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 21 of 29
+Transform {
+    translation 21.000000 -2.377639 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.951055 0.000000 0.048945
+                }
+            }
+            geometry Box {
+                size 1.000000 4.755277 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 21.000000 -5.231468 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "-4.8"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 22 of 29
+Transform {
+    translation 22.000000 -2.486304 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.994521 0.000000 0.005479
+                }
+            }
+            geometry Box {
+                size 1.000000 4.972608 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 22.000000 -5.448798 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "-5.0"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 23 of 29
+Transform {
+    translation 23.000000 -2.486306 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.994522 0.000000 0.005478
+                }
+            }
+            geometry Box {
+                size 1.000000 4.972611 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 23.000000 -5.448802 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "-5.0"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 24 of 29
+Transform {
+    translation 24.000000 -2.377645 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.951058 0.000000 0.048942
+                }
+            }
+            geometry Box {
+                size 1.000000 4.755289 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 24.000000 -5.231480 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "-4.8"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 25 of 29
+Transform {
+    translation 25.000000 -2.165069 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.866028 0.000000 0.133972
+                }
+            }
+            geometry Box {
+                size 1.000000 4.330138 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 25.000000 -4.806329 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "-4.3"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 26 of 29
+Transform {
+    translation 26.000000 -1.857870 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.743148 0.000000 0.256852
+                }
+            }
+            geometry Box {
+                size 1.000000 3.715739 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 26.000000 -4.191930 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "-3.7"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 27 of 29
+Transform {
+    translation 27.000000 -1.469473 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.587789 0.000000 0.412211
+                }
+            }
+            geometry Box {
+                size 1.000000 2.938946 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 27.000000 -3.415136 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "-2.9"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 28 of 29
+Transform {
+    translation 28.000000 -1.016852 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.406741 0.000000 0.593259
+                }
+            }
+            geometry Box {
+                size 1.000000 2.033704 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 28.000000 -2.509895 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "-2.0"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Sample 29 of 29
+Transform {
+    translation 29.000000 -0.519791 0.000000
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.207916 0.000000 0.792084
+                }
+            }
+            geometry Box {
+                size 1.000000 1.039582 1.000000
+            }
+        }
+    ]
+}
+Transform {
+    translation 29.000000 -1.515773 0.000000
+    children [
+        Billboard {
+            axisOfRotation 0.0 0.0 0.0
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0
+                        }
+                    }
+                    geometry Text {
+                        string "-1.0"
+                        fontStyle FontStyle {
+                            size 0.454545
+                            justify [ "MIDDLE", "MIDDLE" ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+

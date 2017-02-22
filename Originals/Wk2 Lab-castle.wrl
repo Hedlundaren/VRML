@@ -1,0 +1,325 @@
+#VRML V2.0 utf8
+#
+#  This world illustrates how far you can go using the primitive
+#  geometry nodes:  Box, Cone, and Cylinder.  An entire fairy-tale
+#  castle is built by translating and rotating these shapes into
+#  position.
+#
+#  Things to experiment with...
+#	Change the color scheme to make the castle an evil lair.
+#
+#	Add texture maps to make the castle walls look like they are built
+#	from stone.
+#
+#	Make the castle door an anchor.  Clicking on the door leads to
+#	another world describing the castle interior.
+#
+#	Add panorama cloud and mountain textures to the Background node.
+#
+#	In Nintendo 64 style, add platforms that rise and fall and cannons
+#	that rise up when you approach.  You can build these using
+#	PositionInterpolators and TimeSensors to run the animations,
+#	and ProximitySensors to trigger the actions.
+
+Transform {
+    translation 0.0 -1.6 0.0
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.0 0.0 0.0
+                    emissiveColor 0.0 0.5 0.0
+                }
+            }
+            geometry Box { size 2000.0 0.01 2000.0 }
+        }
+    ]
+}
+
+
+#  Castle
+DEF Castle Transform {
+    translation 0.0 -1.6 -200.0
+    children [
+    #  Tower base
+        Transform {
+            translation 0.0 20.0 0.0
+            children Shape {
+                appearance DEF CastleColor Appearance {
+                    material Material {
+                        diffuseColor 1.0 1.0 1.0
+                        ambientIntensity 0.5
+                    }
+                }
+                geometry Cylinder {
+                    radius 50.0
+                    height 40.0
+                    bottom FALSE
+                }
+            }
+        }
+    #  Entryway
+        Transform {
+            translation 0.0 0.0 52.0
+            children [
+            # Entry block
+                Transform {
+                    translation 0.0 10.0 0.0
+                    children Shape {
+                        appearance USE CastleColor
+                        geometry Box { size 30.0 20.0 6.0 }
+                    }
+                }
+            # Door
+                Transform {
+                    translation 0.0 5.0 3.0
+                    children Shape {
+                        appearance Appearance {
+                            material Material {
+                                diffuseColor 0.4 0.1 0.0
+                            }
+                        }
+                        geometry Box { size 10.0 10.0 0.5 }
+                    }
+                }
+            # Left entry tower
+                Transform {
+                    translation -15.0 0.0 3.0
+                    children [
+                    # Tower section
+                        DEF EntryTower Transform {
+                            translation 0.0 15.0 0.0
+                            children Shape {
+                                appearance USE CastleColor
+                                geometry Cylinder {
+                                    radius 5.0
+                                    height 30.0
+                                    bottom FALSE
+                                    top FALSE
+                                }
+                            }
+                        }
+                    # Roof
+                        DEF EntryRoof Transform {
+                            translation 0.0 40.0 0.0
+                            children Shape {
+                                appearance DEF RoofColor Appearance {
+                                    material Material {
+                                        diffuseColor 1.0 0.0 0.0
+                                        ambientIntensity 0.5
+                                    }
+                                }
+                                geometry Cone {
+                                    bottomRadius 8.0
+                                    height 20.0
+                                }
+                            }
+                        }
+                    ]
+                }
+            # Right entry tower
+                Transform {
+                    translation 15.0 0.0 3.0
+                    children [
+                        USE EntryTower
+                        USE EntryRoof
+                    ]
+                }
+            ]
+        }
+    #  Left tower atop base
+        Transform {
+            translation -15.0 40.0 -5.0
+            children [
+            # Lower tower section
+                Transform {
+                    translation 0.0 30.0 0.0
+                    children Shape {
+                        appearance USE CastleColor
+                        geometry Cylinder {
+                            radius 25.0
+                            height 60.0
+                            bottom FALSE
+                        }
+                    }
+                }
+            # Upper tower section
+                Transform {
+                    translation 0.0 100.0 0.0
+                    children Shape {
+                        appearance USE CastleColor
+                        geometry Cylinder {
+                            radius 15.0
+                            height 80.0
+                            bottom FALSE
+                            top FALSE
+                        }
+                    }
+                }
+            # Roof
+                Transform {
+                    translation 0.0 170.0 0.0
+                    children DEF MainRoofCone Shape {
+                        appearance USE RoofColor
+                        geometry Cone {
+                            bottomRadius 23.0
+                            height 60.0
+                        }
+                    }
+                }
+            ]
+        }
+    #  Right tower atop base
+        Transform {
+            translation 20.0 40.0 15.0
+            children [
+            # Tower section
+                Transform {
+                    translation 0.0 50.0 0.0
+                    children Shape {
+                        appearance USE CastleColor
+                        geometry Cylinder {
+                            radius 15.0
+                            height 100.0
+                            bottom FALSE
+                            top FALSE
+                        }
+                    }
+                }
+            # Roof
+                Transform {
+                    translation 0.0 130.0 0.0
+                    children USE MainRoofCone
+                }
+            # Sub-tower
+                Transform {
+                    translation 0.0 30.0 15.0
+                    children [
+                    # Tower section
+                        DEF SmallSubTower Transform {
+                            translation 0.0 25.0 0.0
+                            children Shape {
+                                appearance USE CastleColor
+                                geometry Cylinder {
+                                    radius 5.0
+                                    height 30.0
+                                    bottom FALSE
+                                    top FALSE
+                                }
+                            }
+                        }
+                    # Base cone
+                        DEF SmallSubBase Transform {
+                            translation 0.0 5.0 0.0
+                            rotation 1.0 0.0 0.0 3.14159
+                            children Shape {
+                                appearance USE CastleColor
+                                geometry Cone {
+                                    bottomRadius 5.0
+                                    height 10.0
+                                    bottom FALSE
+                                }
+                            }
+                        }
+                    # Roof
+                        DEF SmallSubRoof Transform {
+                            translation 0.0 50.0 0.0
+                            children Shape {
+                                appearance USE RoofColor
+                                geometry Cone {
+                                    bottomRadius 8.0
+                                    height 20.0
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    #  Right large sub tower
+        Transform {
+            translation 50.0 20.0 0.0
+            children [
+            # Tower section
+                DEF LargeSubTower Transform {
+                    translation 0.0 60.0 0.0
+                    children Shape {
+                        appearance USE CastleColor
+                        geometry Cylinder {
+                            radius 10.0
+                            height 80.0
+                            bottom FALSE
+                            top FALSE
+                        }
+                    }
+                }
+            # Base cone
+                DEF LargeSubBase Transform {
+                    translation 0.0 10.0 0.0
+                    rotation 1.0 0.0 0.0 3.14159
+                    children Shape {
+                        appearance USE CastleColor
+                        geometry Cone {
+                            bottomRadius 10.0
+                            height 20.0
+                            bottom FALSE
+                        }
+                    }
+                }
+            # Roof
+                DEF LargeSubRoof Transform {
+                    translation 0.0 120.0 0.0
+                    children Shape {
+                        appearance USE RoofColor
+                        geometry Cone {
+                            bottomRadius 15.0
+                            height 40.0
+                        }
+                    }
+                }
+                Transform {
+                    translation 10.0 40.0 0.0
+                    children [
+                        USE SmallSubTower
+                        USE SmallSubBase
+                        USE SmallSubRoof
+                    ]
+                }
+            ]
+        }
+    #  Left large sub tower
+        Transform {
+            translation -35.36 20.0 35.36
+            children [
+                USE LargeSubTower
+                USE LargeSubBase
+                USE LargeSubRoof
+                Transform {
+                    translation -7.07 40.0 7.07
+                    children [
+                        USE SmallSubTower
+                        USE SmallSubBase
+                        USE SmallSubRoof
+                    ]
+                }
+            ]
+        }
+    #  Back large sub tower
+        Transform {
+            translation 0.0 20.0 -50.0
+            children [
+                USE LargeSubTower
+                USE LargeSubBase
+                USE LargeSubRoof
+                Transform {
+                    translation 0.0 40.0 -10.0
+                    children [
+                        USE SmallSubTower
+                        USE SmallSubBase
+                        USE SmallSubRoof
+                    ]
+                }
+            ]
+        }
+    ]
+}

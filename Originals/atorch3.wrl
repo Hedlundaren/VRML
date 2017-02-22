@@ -1,0 +1,76 @@
+#VRML V2.0 utf8
+
+#  This file creates a torch *without* animated flames, but for use in
+#  an LOD with other torches that do have animated flames.  Instead
+#  of animated flames, this torch uses a single torch texture.
+
+Transform {
+    translation 0.0 0.0 0.2
+    scale 0.5 0.5 0.5
+    children [
+    # Torch handle (simplified)
+        Shape {
+            appearance DEF Gray Appearance {
+                material Material { diffuseColor 0.4 0.4 0.4 }
+            }
+            geometry IndexedFaceSet {
+                coord Coordinate {
+                    point [
+                        -0.15 0.0 0.0,  0.0 -1.5 0.0,
+                         0.15 0.0 0.0,
+                    ]
+                }
+                coordIndex [ 0, 1, 2 ]
+            }
+        }
+    # Fire pot (simplified)
+        DEF Ring Shape {
+            appearance USE Gray
+            geometry IndexedFaceSet {
+                coord Coordinate {
+                    point [
+                    # First ring
+                        -0.40 -0.05 0.1,  0.40 -0.05 0.1,
+                         0.40  0.05 0.1, -0.40  0.05 0.1,
+                    # Second ring
+                        -0.40  0.15 0.1,  0.40  0.15 0.1,
+                         0.40  0.25 0.1, -0.40  0.25 0.1,
+                    ]
+                }
+                coordIndex [ 0, 1, 2, 3, -1,  4, 5, 6, 7, -1 ]
+            }
+        }
+    # Fire pot detail (eliminated)
+    # Mounting bracket (eliminated)
+    # Flames
+        Billboard {
+            axisOfRotation 0.0 1.0 0.0
+            children Shape {
+                appearance Appearance {
+                    texture ImageTexture { url "flames1.png" }
+                }
+                geometry IndexedFaceSet {
+                    coord Coordinate {
+                        point [
+                            -0.5 0.0 0.0,
+                             0.5 0.0 0.0,
+                             0.5 1.8 0.0,
+                            -0.5 1.8 0.0,
+                        ]
+                    }
+                    coordIndex [ 0, 1, 2, 3 ]
+                    texCoord TextureCoordinate {
+                        point [
+                            0.0 0.0,
+                            1.0 0.0,
+                            1.0 1.0,
+                            0.0 1.0,
+                        ]
+                    }
+                    texCoordIndex [ 0, 1, 2, 3 ]
+                    solid FALSE
+                }
+            }
+        }
+    ]
+}

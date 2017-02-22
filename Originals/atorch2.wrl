@@ -1,0 +1,51 @@
+#VRML V2.0 utf8
+
+#  This file creates a torch with animated flames created using the
+#  'Flames' node defined by an EXTERNPROTO.
+
+EXTERNPROTO Flames [
+    field SFTime cycleInterval
+    field SFTime startTime
+] "flames.wrl#Flames"
+
+Transform {
+    translation 0.0 0.0 0.2
+    scale 0.5 0.5 0.5
+    children [
+    # Torch handle
+        Transform {
+            translation 0.0 -0.75 0.0
+            rotation 1.0 0.0 0.0 3.14
+            children Shape {
+                appearance DEF Gray Appearance {
+                    material Material {
+                        diffuseColor  0.4 0.4 0.4
+                        specularColor 0.7 0.7 0.7
+                    }
+                }
+                geometry Cone {
+                    height 1.5
+                    bottomRadius 0.15
+                }
+            }
+        }
+    # Fire pot
+        DEF Ring Shape {
+            appearance USE Gray
+            geometry Cylinder {
+                height 0.1
+                radius 0.4
+                top    FALSE
+                bottom FALSE
+            }
+        }
+        Transform { translation 0.0 0.2 0.0 children USE Ring }
+    # Fire pot detail (eliminated)
+    # Mounting bracket (eliminated)
+    # Flames
+        Billboard {
+            axisOfRotation 0.0 1.0 0.0
+            children Flames { }
+        }
+    ]
+}

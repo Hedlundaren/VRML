@@ -1,0 +1,93 @@
+# VRML V2.0 utf8
+
+WorldInfo {
+    title "Yolo World 2000"
+    info [ "Copyright (c) 2017, Simon Hedlund" ]
+}
+
+NavigationInfo {
+    type [ "EXAMINE", "ANY" ]
+    headlight TRUE
+}
+
+
+
+# Scene
+DEF Scene Transform {
+    translation 0.0 -1.0 0.0
+    scale 0.5 0.5 0.5
+    children [
+
+    # Floor
+    Transform {
+        translation 0.0 -1.6 0.0
+        children [
+            Shape {
+                appearance DEF FloorMaterial Appearance {
+                    material Material {
+                        diffuseColor 0.6 0.0 0.0
+                        emissiveColor 0.0 0.0 0.0
+                    }
+
+                    texture ImageTexture {
+                       url "textures/stone1.jpg"
+                    }
+                }
+                geometry Box { size 200.0 10.0 200.0 }
+            }
+        ]
+    }
+
+    #  Tower base
+        Transform {
+            translation 0.0 10.0 0.0
+            children Shape {
+                appearance DEF CastleMaterial Appearance {
+                    material Material {
+                        diffuseColor 1.0 1.0 1.0
+                        ambientIntensity 0.0
+                    }
+                    texture ImageTexture {
+              			   url "textures/wood1.jpg"
+              			}
+                }
+                geometry Cylinder {
+                    radius 50.0
+                    height 40.0
+                    bottom FALSE
+                }
+            }
+        }
+
+    #  Entryway
+    Transform {
+        translation 0.0 0.0 52.0
+        children [
+        # Entry block
+            Transform {
+                translation 0.0 10.0 0.0
+                children Shape {
+                    appearance USE CastleMaterial
+                    geometry Box { size 30.0 20.0 6.0 }
+                }
+            }
+        ]
+    }
+
+    # Text
+    Transform {
+        translation 0.0 50.0 0.0
+        rotation 0.0 0.0 1.0 0.0
+        scale 10.0 10.0 10.0
+          children Shape {
+              appearance USE FloorMaterial
+              geometry Text {
+                string["Welcome to", "Yolo Swag"]
+                fontStyle FontStyle{ justify "MIDDLE" family "SERIF" style "BOLD"}
+              }
+          }
+      }
+
+
+    ]
+}

@@ -1,0 +1,227 @@
+#VRML V2.0 utf8
+
+#  A stop-watch with automatically moving second, minute,
+#  and hour hands, start and stop buttons, and a stop-watch sweep
+#  second hand
+
+Viewpoint { position 0.0 0.0 15.0 }
+NavigationInfo { type [ "EXAMINE", "ANY" ] }
+
+DEF StopWatch Transform {
+    # rotation animated
+    # scale animated
+    children [
+    # Frame and face
+        Transform {
+            rotation 1.0 0.0 0.0  1.571
+            children [
+            # Frame
+                Shape {
+                    appearance Appearance {
+                        material Material { diffuseColor 0.7 0.3 0.0 }
+                    }
+                    geometry Cylinder {
+                        radius 4.8
+                        height 0.8
+                    }
+                }
+            # Face
+                Shape {
+                    appearance Appearance {
+                        material Material { diffuseColor 1.0 1.0 1.0 }
+                    }
+                    geometry Cylinder {
+                        radius 4.0
+                        height 0.9
+                    }
+                }
+            ]
+        }
+    # Start button
+        Transform {
+            translation 3.5 3.5 0.0
+            rotation 0.0 0.0 1.0 -0.71
+            children [
+                DEF Start TouchSensor { }
+                Shape {
+                    appearance Appearance {
+                        material Material { diffuseColor 0.0 1.0 0.0 }
+                    }
+                    geometry Cylinder {
+                        radius 0.38
+                        height 0.3
+                    }
+                }
+            ]
+        }
+    # Stop button
+        Transform {
+            translation -3.5 3.5 0.0
+            rotation 0.0 0.0 1.0 0.71
+            children [
+                DEF Stop TouchSensor { }
+                Shape {
+                    appearance Appearance {
+                        material Material { diffuseColor 1.0 0.0 0.0 }
+                    }
+                    geometry Cylinder {
+                        radius 0.38
+                        height 0.3
+                    }
+                }
+            ]
+        }
+    # Hands
+        DEF MinuteHand Transform {
+            translation 0.0 1.5 0.6
+            center 0.0 -1.5 0.6
+            # animated rotation
+            children [
+            # Arm
+                DEF Arm Shape {
+                    appearance DEF Black Appearance {
+                        material Material { diffuseColor 0.2 0.2 0.2 }
+                    }
+                    geometry Cylinder {
+                        radius 0.17
+                        height 3.0
+                    }
+                }
+            # Pointy end
+                DEF ArrowHead Transform {
+                    translation 0.0 1.9 0.0
+                    children Shape {
+                        appearance USE Black
+                        geometry Cone {
+                            bottomRadius 0.4
+                            height 0.8
+                        }
+                    }
+                }
+            ]
+        }
+        DEF HourHand Transform {
+            translation 0.0 1.5 0.6
+            center 0.0 -1.5 0.6
+            # animated rotation
+            scale 1.0 0.7 1.0
+            children [ USE Arm, USE ArrowHead ]
+        }
+        DEF SecondHand Transform {
+            translation 0.0 1.5 0.6
+            center 0.0 -1.5 0.6
+            # animated rotation
+            scale 0.6 1.0 0.6
+            children [ USE Arm, USE ArrowHead ]
+        }
+        DEF SweepHand Transform {
+            translation 0.0 1.9 0.6
+            center 0.0 -1.9 0.6
+            # animated rotation
+            scale 0.6 1.0 0.6
+            children Shape {
+                appearance DEF Black Appearance {
+                    material Material { diffuseColor 1.0 0.0 0.0 }
+                }
+                geometry Cylinder {
+                    radius 0.17
+                    height 3.8
+                }
+            }
+        }
+    ]
+}
+
+#  Timers and interpolators to spin hands
+DEF SecondTimer TimeSensor {
+    cycleInterval 60.0      # 60 seconds per sweep
+    loop TRUE
+    startTime 0.0
+    stopTime -1.0
+}
+DEF MinuteTimer TimeSensor {
+    cycleInterval 3600.0    # 60*60 seconds per sweep
+    loop TRUE
+    startTime 0.0
+    stopTime -1.0
+}
+DEF HourTimer TimeSensor {
+    cycleInterval 43200.0   # 60*60*12 seconds per sweep
+    loop TRUE
+    startTime 28800.0       # Adjust for Pacific Standard Time
+        # start time of 0 is midnight Grenwich Mean Time (GMT)
+        # Pacific Mean Time (PST) is 8 hours behind GMT
+    stopTime -1.0
+}
+
+DEF SecondSpinner OrientationInterpolator {
+    key [ 0.0, 0.5, 1.0 ]
+    keyValue [ 0.0 0.0 1.0 0.0,  0.0 0.0 1.0 -3.14,  0.0 0.0 1.0 -6.28 ]
+}
+DEF MinuteSpinner OrientationInterpolator {
+    key [ 0.0, 0.5, 1.0 ]
+    keyValue [ 0.0 0.0 1.0 0.0,  0.0 0.0 1.0 -3.14,  0.0 0.0 1.0 -6.28 ]
+}
+DEF HourSpinner OrientationInterpolator {
+    key [ 0.0, 0.5, 1.0 ]
+    keyValue [ 0.0 0.0 1.0 0.0,  0.0 0.0 1.0 -3.14,  0.0 0.0 1.0 -6.28 ]
+}
+
+ROUTE SecondTimer.fraction_changed TO SecondSpinner.set_fraction
+ROUTE MinuteTimer.fraction_changed TO MinuteSpinner.set_fraction
+ROUTE HourTimer.fraction_changed   TO HourSpinner.set_fraction
+ROUTE SecondSpinner.value_changed  TO SecondHand.set_rotation
+ROUTE MinuteSpinner.value_changed  TO MinuteHand.set_rotation
+ROUTE HourSpinner.value_changed    TO HourHand.set_rotation
+
+#  Timer and interpolators to spin stop watch hand
+DEF SweepTimer TimeSensor {
+    cycleInterval 60.0      # 60 seconds per sweep
+    loop TRUE
+    startTime 0.0
+    # start time set on start button press
+    stopTime 1.0
+    # stop time set on stop button press
+}
+DEF SweepSpinner OrientationInterpolator {
+    key [ 0.0, 0.5, 1.0 ]
+    keyValue [ 0.0 0.0 1.0 0.0,  0.0 0.0 1.0 -3.14,  0.0 0.0 1.0 -6.28 ]
+}
+
+ROUTE Start.touchTime TO SweepTimer.set_startTime
+ROUTE Stop.touchTime  TO SweepTimer.set_stopTime
+ROUTE SweepTimer.fraction_changed TO SweepSpinner.set_fraction
+ROUTE SweepSpinner.value_changed TO SweepHand.set_rotation
+
+#  Timers and interpolators for quarter-hour animations
+DEF QuarterHour TimeSensor {
+    cycleInterval 900.0    # 60*15 seconds per action
+    loop TRUE
+    startTime 28800.0      # PST
+    stopTime -1.0
+}
+DEF QuarterAnimation TimeSensor {
+    cycleInterval 3.0
+    loop FALSE
+    startTime -1.0
+    # start time set by quarter-hour clock
+    stopTime 0.0
+}
+
+DEF QuarterSpinner OrientationInterpolator {
+    key [ 0.0, 0.5, 1.0 ]
+    keyValue [ 1.0 1.0 0.0 0.0,  1.0 1.0 0.0 -3.14,  1.0 1.0 0.0 -6.28 ]
+}
+DEF QuarterSquisher PositionInterpolator {
+    key [ 0.0, 0.25, 0.5, 0.75, 1.0 ]
+    keyValue [
+        1.0 1.0 1.0,  0.1 3.0 1.2,  3.0 0.1 1.0,  0.3 2.0 1.2,
+        1.0 1.0 1.0,
+    ]
+}
+
+ROUTE QuarterHour.cycleTime TO QuarterAnimation.set_startTime
+ROUTE QuarterAnimation.fraction_changed TO QuarterSpinner.set_fraction
+ROUTE QuarterAnimation.fraction_changed TO QuarterSquisher.set_fraction
+ROUTE QuarterSpinner.value_changed TO StopWatch.set_rotation
+ROUTE QuarterSquisher.value_changed TO StopWatch.set_scale

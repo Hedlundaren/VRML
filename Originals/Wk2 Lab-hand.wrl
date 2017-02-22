@@ -1,0 +1,598 @@
+#VRML V2.0 utf8
+
+#  This file illustrates the use of the primitive shapes and a lot of
+#  nested Transform nodes to created articulated structures... in
+#  particular, a robotic hand.  Each of the finger joints are controlled
+#  by a separate rotation.  Changing the rotation angles (by editing
+#  this file) will open and close the hand.
+#
+#  For convenience, each of the hand's parts are spearately authored
+#  within a Switch node whose 'whichChoice' field is set to -1...
+#  forcing the parts to be skipped during drawing.  The parts in the
+#  Switch, however, are assembled later in a 'hand' shape at the end
+#  of the Switch, and that shape is then instanced outside of the
+#  Switch.  The effect is to create a file structure that enables you
+#  to build things piece by piece, then use Transform's later on to
+#  assemble those pieces into a drawn shape.
+
+#  Hand components
+Switch {
+	whichChoice -1
+	choice [
+
+	#
+	#  Generic color
+	#
+	Shape {
+		appearance DEF HandColor Appearance {
+			material Material {
+				ambientIntensity 0.3
+				diffuseColor 0.3 0.3 0.5
+				specularColor 0.7 0.7 0.8
+				shininess 0.1
+			}
+		}
+	}
+
+
+	#
+	# Parts of a finger
+	#
+
+	# Base of a finger
+	DEF finger_base Group {
+		children [
+			Shape {
+				appearance USE HandColor
+				geometry Sphere { radius 0.41 }
+			}
+			Transform {
+				translation 0.0 0.875 0.0
+				children [
+					Shape {
+						appearance USE HandColor
+						geometry Cylinder {
+							height 1.75
+							radius 0.35
+						}
+					}
+					Transform {
+						translation 0.0 0.835 0.0
+						children Shape {
+							appearance USE HandColor
+							geometry Sphere { radius 0.35 }
+						}
+					}
+				]
+			}
+		]
+	}
+
+	# Middle part of a finger
+	DEF finger_middle Transform {
+		translation 0.0 0.5 0.0
+		children [
+			Shape {
+				appearance USE HandColor
+				geometry Cylinder {
+					height 1.0
+					radius 0.315
+				}
+			}
+			Transform {
+				translation 0.0 0.5 0.0
+				children Shape {
+					appearance USE HandColor
+					geometry Sphere { radius 0.32 }
+				}
+			}
+		]
+	}
+
+	# Tip of a finger
+	DEF finger_tip Transform {
+		rotation 1.0 0.0 0.0  -0.1
+		children Transform {
+			translation 0.0 0.4 0.0
+			children [
+				Shape {
+					appearance USE HandColor
+					geometry Cylinder {
+						height 0.75
+						radius 0.27
+					}
+				}
+				Transform {
+					translation 0.0 0.35 0.0
+					scale 1.0 0.7 1.0
+					children Shape {
+						appearance USE HandColor
+						geometry Sphere { radius 0.235 }
+					}
+				}
+			]
+		}
+	}
+
+
+
+	#
+	# Fingers built from the finger parts
+	#
+
+	# Index finger
+	DEF finger1 Transform {
+		# Finger spread
+		#                Z    +2 degrees
+		rotation 0.0 0.0 1.0  0.035
+		children Transform {
+			# Finger twist in
+			rotation 0.0 1.0 0.0  -0.03
+			children Transform {
+				# base rotate
+#				rotation 1.0 0.0 0.0  -1.1
+				rotation 1.0 0.0 0.0  -0.2
+				children [
+					USE finger_base
+					Transform {
+						translation 0.0 1.71 0.0
+						# middle rotate
+#						rotation 1.0 0.0 0.0  -1.7
+						rotation 1.0 0.0 0.0  -0.2
+						children [
+							USE finger_middle
+							Transform {
+								translation 0.0 1.0 0.0
+								# tip rotate
+#								rotation 1.0 0.0 0.0  -1.0
+								rotation 1.0 0.0 0.0  -0.2
+								children USE finger_tip
+							}
+						]
+					}
+				]
+			}
+		}
+	}
+
+	# Middle finger
+	DEF finger2 Transform {
+		# Finger spread
+		rotation 0.0 0.0 1.0  0.0
+		scale 1.01 1.15 1.01
+		children Transform {
+			# Finger twist in
+			rotation 0.0 1.0 0.0  0.0
+			children Transform {
+				translation 0.0 0.2 0.0
+				# base rotate
+#				rotation 1.0 0.0 0.0  -1.05
+				rotation 1.0 0.0 0.0  -0.4
+				children [
+					USE finger_base
+					Transform {
+						translation 0.0 1.71 0.0
+						# middle rotate
+#						rotation 1.0 0.0 0.0  -1.7
+						rotation 1.0 0.0 0.0  -0.4
+						children [
+							USE finger_middle
+							Transform {
+								translation 0.0 1.0 0.0
+								# tip rotate
+#								rotation 1.0 0.0 0.0  -1.0
+								rotation 1.0 0.0 0.0  -0.4
+								children USE finger_tip
+							}
+						]
+					}
+				]
+			}
+		}
+	}
+
+
+	# Ring finger
+	DEF finger3 Transform {
+		# Finger spread
+		rotation 0.0 0.0 1.0  -0.0175
+		scale 1.0 1.05 1.0
+		children Transform {
+			# Finger twist in
+			rotation 0.0 1.0 0.0  0.065
+			children Transform {
+				translation 0.0 0.1 0.0
+				# base rotate
+#				rotation 1.0 0.0 0.0  -1.1
+				rotation 1.0 0.0 0.0  -0.6
+				children [
+					USE finger_base
+					Transform {
+						translation 0.0 1.71 0.0
+						# middle rotate
+#						rotation 1.0 0.0 0.0  -1.7
+						rotation 1.0 0.0 0.0  -0.4
+						children [
+							USE finger_middle
+							Transform {
+								translation 0.0 1.0 0.0
+								# tip rotate
+#								rotation 1.0 0.0 0.0  -1.0
+								rotation 1.0 0.0 0.0  -0.4
+								children USE finger_tip
+							}
+						]
+					}
+				]
+			}
+		}
+	}
+
+	# Little finger
+	DEF finger4 Transform {
+		# Finger spread
+		rotation 0.0 0.0 1.0  -0.0698
+		scale 0.9 0.9 0.9
+		children Transform {
+			# Finger twist in
+			rotation 0.0 1.0 0.0  0.1
+			children Transform {
+				translation 0.0 -0.2 0.0
+				# base rotate
+#				rotation 1.0 0.0 0.0  -1.2
+				rotation 1.0 0.0 0.0  -0.7
+				children [
+					USE finger_base
+					Transform {
+						translation 0.0 1.71 0.0
+						# middle rotate
+#						rotation 1.0 0.0 0.0  -1.7
+						rotation 1.0 0.0 0.0  -0.4
+						children [
+							USE finger_middle
+							Transform {
+								translation 0.0 1.0 0.0
+								# tip rotate
+#								rotation 1.0 0.0 0.0  -1.0
+								rotation 1.0 0.0 0.0  -0.4
+								children USE finger_tip
+							}
+						]
+					}
+				]
+			}
+		}
+	}
+
+	# Thumb
+	DEF thumb Transform {
+		# Thumb spread
+		rotation 0.0 0.0 1.0  0.7
+		children Transform {
+			# Thumb twist
+			rotation 0.0 0.0 1.0  0.1
+			children Transform {
+				# Thumb twist
+				rotation 0.0 1.0 0.0 -0.9
+				scale 0.7 0.7 0.8
+				children [
+					# Thumb base
+					Shape {
+						appearance USE HandColor
+						geometry Sphere { radius 0.9 }
+					}
+					Transform {
+						translation 0.0 1.1 0.0
+						children [
+							Shape {
+								appearance USE HandColor
+								geometry Cylinder {
+									height 2.0
+									radius 0.55
+								}
+							}
+							Transform {
+								translation 0.0 0.85 0.0
+								children [
+Shape {
+	appearance USE HandColor
+	geometry Sphere { radius 0.58 }
+}
+Transform {
+	rotation 1.0 0.0 0.0  0.08
+	children [
+		# Thumb middle
+		Transform {
+			translation 0.0 0.6 0.0
+			children [
+				Shape {
+					appearance USE HandColor
+					geometry Cylinder {
+						height 1.2
+						radius 0.41
+					}
+				}
+				Transform {
+					translation 0.0 0.6 0.0
+					children [
+						Shape {
+							appearance USE HandColor
+							geometry Sphere { radius 0.45 }
+						}
+						Transform {
+							rotation 1.0 0.0 0.0  0.13
+							children [
+								# Thumb tip
+Transform {
+	rotation 1.0 0.0 0.0 -0.1
+	children [
+		Transform {
+			translation 0.0 0.5 0.05
+			children [
+				Shape {
+					appearance USE HandColor
+					geometry Cylinder {
+						height 1.0
+						radius 0.325
+					}
+				}
+				Transform {
+					translation 0.0 0.5 0.0
+					scale 1.0 0.7 1.0
+					children Shape {
+						appearance USE HandColor
+						geometry Sphere { radius 0.29 }
+					}
+				}
+			]
+		}
+	]
+}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
+								]
+							}
+						]
+					}
+				]
+			}
+		}
+	}
+
+
+	# Palm
+	DEF palm Group {
+		children [
+			# Main body of hand
+			Transform {
+				translation -0.05 0.875 -0.03
+				children Shape {
+					appearance USE HandColor
+					geometry Box { size 2.85 2.45 0.6 }
+				}
+			}
+
+
+
+			# Thumb bulge
+			Transform {
+				translation -0.9 0.2 -0.2
+				scale 1.1 0.7 0.3
+				children Shape {
+					appearance USE HandColor
+					geometry Sphere { radius 1.1 }
+				}
+			}
+
+			# Side of hand bulge
+			Transform {
+				translation 0.5 0.0 -0.2
+				scale 0.9 0.8 0.3
+				children Shape {
+					appearance USE HandColor
+					geometry Sphere { radius 1.0 }
+				}
+			}
+
+			# Rings, wrist, and arm
+			Transform {
+				translation 0.0 -0.6 0.0
+				scale 1.5 1.0 1.0
+				children Transform {
+					rotation 1.0 0.0 0.0 -0.4
+					children [
+						Shape {
+							appearance USE HandColor
+							geometry Cylinder {
+								height 0.1
+								radius 1.1
+							}
+						}
+						Transform {
+							translation 0.0 -0.3 0.0
+							children [
+								Shape {
+									appearance USE HandColor
+									geometry Sphere { radius 0.8 }
+								}
+								Shape {
+									appearance USE HandColor
+									geometry Cylinder {
+										height 0.1
+										radius 1.1
+									}
+								}
+								Transform {
+									translation 0.0 -1.3 0.0
+									children Shape {
+										appearance USE HandColor
+										geometry Cylinder {
+											height 2.0
+											radius 0.6
+										}
+									}
+								}
+							]
+						}
+					]
+				}
+			}
+
+
+		# Veins on the back of the hand
+			Transform {
+				translation 0.0 -0.475 0.345
+				children [
+					Transform {
+						rotation 0.0 0.0 1.0 0.15
+						children DEF vein Transform {
+							translation 0.0 1.375 0.0
+							children Shape {
+								appearance USE HandColor
+								geometry Cylinder {
+									height 2.85
+									radius 0.15
+								}
+							}
+						}
+					}
+					Transform {
+						rotation 0.0 0.0 1.0 0.45
+						children USE vein
+					}
+					Transform {
+						rotation 0.0 0.0 1.0 -0.15
+						children USE vein
+					}
+					Transform {
+						rotation 0.0 0.0 1.0 -0.45
+						children USE vein
+					}
+					Transform {
+						rotation 0.0 0.0 1.0 1.15
+						children Transform {
+							translation 0.0 0.875 0.0
+							children Shape {
+								appearance USE HandColor
+								geometry Cylinder {
+									height 1.75
+									radius 0.15
+								}
+							}
+						}
+					}
+				]
+			}
+		]
+	}
+
+
+	#
+	#  Hand
+	#
+	DEF hand Group {
+		children [
+			USE finger1
+			Transform {
+				translation 0.8 0.0 0.0
+				children [
+					USE finger2
+					Transform {
+						translation 0.8 0.0 0.0
+						children [
+							USE finger3
+							Transform {
+								translation 0.8 0.0 0.0
+								children USE finger4
+							}
+						]
+					}
+				]
+			}
+			Transform {
+				translation -0.4 -2.0 0.0
+				children USE thumb
+			}
+			Transform {
+				translation 1.2 -2.2 0.0
+				children USE palm
+			}
+		]
+	}
+	]
+}
+
+
+
+#
+#  The hand!
+#
+Transform {
+	translation 0.0 -2.0 0.0
+	rotation 0.0 1.0 0.0  1.0
+	children Transform {
+		rotation 1.0 0.0 0.0 1.9
+		children USE hand
+	}
+}
+
+
+#
+#  Primitives in the hand
+#
+Transform {
+	translation 1.5 1.0 0.0
+	rotation 1.0 0.0 1.0 0.3
+	children Shape {
+		appearance Appearance {
+			material Material {
+				diffuseColor 1.0 0.0 0.0
+			}
+		}
+		geometry Cone { }
+	}
+}
+
+Transform {
+	translation 2.0 3.0 -0.5
+	children Shape {
+		appearance Appearance {
+			material Material {
+				diffuseColor 1.0 1.0 0.0
+			}
+		}
+		geometry Sphere { }
+	}
+}
+
+Transform {
+	translation -0.6 0.8 0.5
+	rotation 1.0 0.0 0.2 0.82
+	children Shape {
+		appearance Appearance {
+			material Material {
+				diffuseColor 0.0 0.7 1.0
+			}
+		}
+		geometry Cylinder { radius 0.75 height 1.5 }
+	}
+}
+
+Transform {
+	translation 0.0 2.6 -1.1
+	rotation 1.0 0.0 0.7 1.3
+	children Shape {
+		appearance Appearance {
+			material Material {
+				diffuseColor 0.0 1.0 0.0
+			}
+		}
+		geometry Box { size 1.25 1.25 1.25 }
+	}
+}

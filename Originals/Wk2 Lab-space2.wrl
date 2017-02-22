@@ -1,0 +1,104 @@
+#VRML V2.0 utf8
+
+#  This file illustrates the use of VRML primitive shapes to build a
+#  more complex shape.  Transform nodes are used to position and orient
+#  the shapes.  Scaling in the Transform node squishes and stretches shapes,
+#  enabling you to create flattened ellipsoids out of spheres, and more.
+
+# Wing
+DEF LeftWing Transform {
+    translation 0.0 0.0 -0.9
+    rotation 0.0 1.0 0.0 0.52
+    scale 0.4 0.035 1.5
+    children [
+        DEF WingSphere Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.7 0.7 1.0
+                    specularColor 1.0 1.0 1.0
+                    shininess 0.1
+                }
+            }
+            geometry Sphere { }
+        }
+    ]
+}
+DEF RightWing Transform {
+    translation 0.0 0.0 0.9
+    rotation 0.0 1.0 0.0 -0.52
+    scale 0.4 0.035 1.5
+    children [ USE WingSphere ]
+}
+
+# Fuselage
+DEF Fuselage Transform {
+    scale 2.0 0.2 0.5
+    children [
+        DEF FuselageSphere Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.5 0.5 1.0
+                    specularColor 0.4 0.7 1.0
+                    shininess 0.1
+                }
+            }
+            geometry Sphere { }
+        }
+    ]
+}
+
+# Dome
+Transform {
+    scale 0.6 0.4 0.375
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    ambientIntensity 0.5
+                    diffuseColor 0.7 0.5 1.0
+                    specularColor 1.0 0.0 0.3
+                    shininess 0.5
+                }
+            }
+            geometry Sphere { }
+        }
+    ]
+}
+
+# Engines
+Transform {
+    translation -0.6 0.0 -1.5
+    scale 0.6 0.06 0.1
+    children [
+        DEF EngineSphere Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 0.3 0.3 0.7
+                }
+            }
+            geometry Sphere { }
+        }
+    ]
+}
+Transform {
+    translation -0.6 0.0 1.5
+    scale 0.6 0.06 0.1
+    children [ USE EngineSphere ]
+}
+
+# Tail
+Transform {
+    translation -2.0 0.5 0.0
+    scale 0.4 0.4 0.4
+    children [
+        USE LeftWing
+        USE RightWing
+        USE Fuselage
+    ]
+}
+Transform {
+    translation -1.5 0.25 0.0
+    rotation 0.0 0.0 1.0 -0.6
+    scale 0.5 0.2 0.075
+    children [ USE FuselageSphere ]
+}

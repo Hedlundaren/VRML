@@ -1,0 +1,69 @@
+#VRML V2.0 utf8
+
+#  This world illustrates the use of the 'Flames' node defined in the
+#  external file 'flames.wrl'.  That node creates an animated flame.
+#  This world uses such flames on the head of a match.
+
+Viewpoint {
+    position 0.0 0.3 4.0
+    description "Entry view"
+}
+
+NavigationInfo {
+    type [ "EXAMINE", "ANY" ]
+    headlight TRUE
+}
+
+Background {
+    skyColor [
+        0.0 0.0 0.0
+        0.0 0.0 0.0
+        0.0 0.2 0.0
+    ]
+    skyAngle [
+        1.57,
+        1.87,
+    ]
+}
+
+
+EXTERNPROTO Flames [
+    field SFTime cycleInterval
+    field SFTime startTime
+] "flames.wrl#Flames"
+
+#  Match flames
+Billboard {
+    axisOfRotation 0.0 1.0 0.0
+    children Flames { }
+}
+
+
+#  Match head and stick
+Transform {
+    translation 0.0 -0.2 0.0
+    children [
+        Transform {
+            scale 0.5 1.0 0.5
+            children Shape {
+                appearance Appearance {
+                    material Material {
+                        diffuseColor 0.3 0.3 0.3
+                    }
+                }
+                geometry Sphere { radius 0.3 }
+            }
+        }
+        Transform {
+            translation 0.0 -1.2 0.0
+            children Shape {
+                appearance Appearance {
+                    material Material {
+                        diffuseColor 0.8 0.7 0.5
+                    }
+                }
+                geometry Box { size 0.1 2.0 0.1 }
+            }
+        }
+    ]
+}
